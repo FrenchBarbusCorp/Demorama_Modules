@@ -27,7 +27,7 @@ jobs:
 
       - name: Recuperation du output
         if: ${{ failure() }}
-        run: echo ${{ steps.var_output_fmt.outputs.stdout }}
+        run: echo "${{ steps.var_output_fmt.outputs.stdout }}"
 
       - name: Creation d'un Timestamp fmt
         if: ${{ failure() }}
