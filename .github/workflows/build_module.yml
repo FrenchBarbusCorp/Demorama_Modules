@@ -25,10 +25,9 @@ jobs:
         run: |
           terraform fmt -check -diff ./Modules/Az_Container_Apps
 
-      - name: toto
+      - name: Recuperation du output
         if: ${{ failure() }}
         run: echo ${{ steps.var_output_fmt.outputs.stdout }}
-
 
       - name: Creation d'un Timestamp fmt
         if: ${{ failure() }}
