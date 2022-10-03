@@ -88,7 +88,7 @@ jobs:
           title: Error Terraform validate ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
             ## Error Terraform validate
-            `${{ steps.var_output_validate.outputs.stderr }}``
+            `${{ steps.var_output_validate.outputs.stderr }}`
 
           assignees: |
             Pierre-Chesne
