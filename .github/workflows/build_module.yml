@@ -40,4 +40,4 @@ jobs:
       - name: Terraform Init
         run: |
           cd ./Modules/Az_Container_Apps       
-          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"     
+          terraform init     
