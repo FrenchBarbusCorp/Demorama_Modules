@@ -27,5 +27,5 @@ variable "logAnalyticsWorkSpaceRetentionDays" {
 }
 
 variable "envName" {
-  ype = string
+  type = string
 }
