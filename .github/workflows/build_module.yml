@@ -1,0 +1,16 @@
+main: Build Module Terraform
+
+on:
+  push:
+    branches:
+      - "Az_Containers_Apps"
+
+jobs:
+
+  Check_Module:
+    name: Check_Module
+    runs-on: windows-latest
+
+    steps:
+      - name: Checks-out your repository
+        uses: actions/checkout@v3
