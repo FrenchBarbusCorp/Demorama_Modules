@@ -9,7 +9,7 @@ jobs:
 
   Check_Module:
     name: Check_Module
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checks-out your repository
