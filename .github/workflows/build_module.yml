@@ -73,7 +73,8 @@ jobs:
         run: | 
           echo "${{ steps.var_output_validate.outputs.stderr }}" > Error
           ls -lisa
-          cat Error
+          CAT=$(cat Error)
+          echo "$cat"
 
 
       - name: Creation d'un Timestamp Terraform validate
