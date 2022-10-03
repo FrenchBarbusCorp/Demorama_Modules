@@ -70,7 +70,10 @@ jobs:
 
       - name: Recuperation du output Terraform validate
         if: ${{ failure() }}
-        run: echo "${{ steps.var_output_validate.outputs.stderr }}"
+        run: | 
+          echo "${{ steps.var_output_validate.outputs.stderr }}" > Error
+          ls -lisa
+
 
       - name: Creation d'un Timestamp Terraform validate
         if: ${{ failure() }}
@@ -86,9 +89,8 @@ jobs:
           title: Error Terraform validate ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
             ## Error Terraform validate
-            \`\`\`\n
             echo "${{ steps.var_output_validate.outputs.stderr }}"
-            \`\`\`
+
           assignees: |
             Pierre-Chesne
           labels: |
