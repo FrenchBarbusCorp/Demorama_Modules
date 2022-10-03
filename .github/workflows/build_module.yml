@@ -25,11 +25,11 @@ jobs:
         run: |
           terraform fmt -check -diff ./Modules/Az_Container_Apps
 
-      - name: Recuperation du output
+      - name: Recuperation du output Terraform fmt check
         if: ${{ failure() }}
         run: echo "${{ steps.var_output_fmt.outputs.stdout }}"
 
-      - name: Creation d'un Timestamp fmt
+      - name: Creation d'un Timestamp Terraform fmt check
         if: ${{ failure() }}
         run: |
           echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
@@ -68,6 +68,27 @@ jobs:
           cd ./Modules/Az_Container_Apps       
           terraform init && terraform validate
 
-      - name: Recuperation du output
+      - name: Recuperation du output Terraform validate
         if: ${{ failure() }}
         run: echo "${{ steps.var_output_validate.outputs.stderr }}"
+
+      - name: Creation d'un Timestamp Terraform validate
+        if: ${{ failure() }}
+        run: |
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
+        id: var_timestamp_validate
+
+      - name: Creation "Terrafom validate Issue"
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Terraform fmt ${{ steps.var_timestamp_validate.outputs.today }}
+          body: |
+            ## Error Terraform fmt
+            ${{ steps.var_output_validate.outputs.stderr }}
+          assignees: |
+            Pierre-Chesne
+          labels: |
+            Error Terraform validate
+
