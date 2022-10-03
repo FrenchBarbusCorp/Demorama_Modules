@@ -26,7 +26,7 @@ resource "azapi_resource" "env_aca" {
   parent_id = azurerm_resource_group.rg0.id
   #schema_validation_enabled = false
   #depends_on = [azurerm_log_analytics_workspace.law]
-  
+
   body = jsonencode({
     properties = {
       appLogsConfiguration = {
