@@ -83,7 +83,7 @@ jobs:
         uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
         with:
           github_token: ${{ secrets.github_token }}
-          title: Error Terraform fmt ${{ steps.var_timestamp_validate.outputs.today }}
+          title: Error Terraform validate ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
             ## Error Terraform validate
             "${{ steps.var_output_validate.outputs.stderr }}"
