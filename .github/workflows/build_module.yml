@@ -71,10 +71,7 @@ jobs:
       - name: Recuperation du output Terraform validate
         if: ${{ failure() }}
         run: | 
-          echo "${{ steps.var_output_validate.outputs.stderr }}" > Error
-          ls -lisa
-          CAT=$(cat Error)
-          echo "$CAT"
+          echo "${{ steps.var_output_validate.outputs.stderr }}"
 
 
       - name: Creation d'un Timestamp Terraform validate
@@ -91,8 +88,7 @@ jobs:
           title: Error Terraform validate ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
             ## Error Terraform validate
-            echo $CAT
-#            echo "${{ steps.var_output_validate.outputs.stderr }}"
+            ${{ steps.var_output_validate.outputs.stderr }}
 
           assignees: |
             Pierre-Chesne
