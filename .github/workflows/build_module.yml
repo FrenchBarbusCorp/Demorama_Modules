@@ -37,7 +37,7 @@ jobs:
 
       - name: Creation "Terrafom fmt Issue"
         if: ${{ failure() }}
-        uses: actions-ecosystem/action-create-issue@v1
+        uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
         with:
           github_token: ${{ secrets.github_token }}
           title: Error Terraform fmt ${{ steps.var_timestamp_fmt.outputs.today }}
@@ -63,6 +63,11 @@ jobs:
           terraform_version: 1.3.1
 
       - name: Terraform validate
+        id: var_output_validate
         run: |
           cd ./Modules/Az_Container_Apps       
           terraform init && terraform validate
+
+      - name: Recuperation du output
+        if: ${{ failure() }}
+        run: echo "${{ steps.var_validate_fmt.outputs.stdout }}"
