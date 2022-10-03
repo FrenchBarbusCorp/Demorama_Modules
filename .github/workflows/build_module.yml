@@ -91,7 +91,8 @@ jobs:
           title: Error Terraform validate ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
             ## Error Terraform validate
-            echo "${{ steps.var_output_validate.outputs.stderr }}"
+            echo "$CAT"
+#            echo "${{ steps.var_output_validate.outputs.stderr }}"
 
           assignees: |
             Pierre-Chesne
