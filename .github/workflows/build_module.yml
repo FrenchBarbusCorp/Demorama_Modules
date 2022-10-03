@@ -94,4 +94,3 @@ jobs:
             Pierre-Chesne
           labels: |
             Error Terraform validate
-
