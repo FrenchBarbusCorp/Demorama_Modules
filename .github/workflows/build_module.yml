@@ -88,9 +88,37 @@ jobs:
           title: Error Terraform validate ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
             ## Error Terraform validate
-            `${{ steps.var_output_validate.outputs.stderr }}`
+            ${{ steps.var_output_validate.outputs.stderr }}
 
           assignees: |
             Pierre-Chesne
           labels: |
             Error Terraform validate
+
+  Create_Issue:
+    name: Create Issue 
+    runs-on: ubuntu-latest
+    needs:
+      - Terraform_fmt_check
+      - Terraform_validate
+
+    steps:
+      - name: Create Issue "Test module Terraform"
+        uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
+        with:
+          github_token: ${{ secrets.github_token }}
+          repo: FrenchBarbusCorp/Demorama_Modules
+          title: Issue fdp
+          body: |
+            ## This week's TODO
+
+            - [ ] Have a meeting with UX team
+            - [ ] Check the dashboard
+
+
+
+
+  
+
+
+
