@@ -1,4 +1,4 @@
-main: Build Module Terraform
+name: Build Module Terraform
 
 on:
   push:
