@@ -70,4 +70,4 @@ jobs:
 
       - name: Recuperation du output
         if: ${{ failure() }}
-        run: echo ${{ steps.var_output_validate.outputs.stdout }}
+        run: echo "${{ steps.var_output_validate.outputs.stderr }}"
