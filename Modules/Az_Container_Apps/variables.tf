@@ -11,7 +11,7 @@ variable "acrName" {
 }
 
 variable "acrSku" {
-  type = string  
+  type = string
 }
 
 variable "logAnalyticsWorkSpaceName" {
