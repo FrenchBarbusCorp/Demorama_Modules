@@ -103,12 +103,18 @@ jobs:
       - Terraform_validate
 
     steps:
+
+      - name: Creation d'un Timestamp Issue
+        run: |
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
+        id: var_timestamp_issue
+
       - name: Create Issue "Test module Terraform"
         uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
         with:
           github_token: ${{ secrets.github_token }}
           repo: FrenchBarbusCorp/Demorama_Modules
-          title: Issue fdp
+          title: Issue test module Terraform Az Container Apps ${{ steps.var_timestamp_issue.outputs.today }}
           body: |
             ## This week's TODO
 
