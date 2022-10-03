@@ -85,8 +85,8 @@ jobs:
           github_token: ${{ secrets.github_token }}
           title: Error Terraform fmt ${{ steps.var_timestamp_validate.outputs.today }}
           body: |
-            ## Error Terraform fmt
-            ${{ steps.var_output_validate.outputs.stderr }}
+            ## Error Terraform validate
+            "${{ steps.var_output_validate.outputs.stderr }}"
           assignees: |
             Pierre-Chesne
           labels: |
