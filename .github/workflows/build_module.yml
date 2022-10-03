@@ -24,6 +24,25 @@ jobs:
         run: |
           terraform fmt -check -diff ./Modules/Az_Container_Apps
 
+      - name: Creation d'un Timestamp fmt
+        if: ${{ failure() }}
+        run: |
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
+        id: var_timestamp
+
+      - name: Creation "Terrafom fmt Issue"
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
+          body: |
+            ## Error Terraform fmt
+          assignees: |
+            Pierre-Chesne
+          labels: |
+            Error Terraform fmt check 
+
   Terraform_validate:
     name: Terraform validate 
     runs-on: ubuntu-latest

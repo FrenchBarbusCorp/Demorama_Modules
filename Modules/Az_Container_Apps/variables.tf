@@ -27,5 +27,5 @@ variable "logAnalyticsWorkSpaceRetentionDays" {
 }
 
 variable "envName" {
-  type = tring
+  type = string
 }
