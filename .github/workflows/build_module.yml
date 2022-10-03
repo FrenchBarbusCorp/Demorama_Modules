@@ -21,8 +21,11 @@ jobs:
           terraform_version: 1.3.1      
 
       - name: Run terraform fmt check
+        id: var_output_fmt
         run: |
           terraform fmt -check -diff ./Modules/Az_Container_Apps
+
+      - run: echo ${{ steps.var_output_fmt.outputs.stdout }}
 
 
       - name: Creation d'un Timestamp fmt
