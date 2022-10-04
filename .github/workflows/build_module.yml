@@ -1,12 +1,9 @@
 name: Build Module Terraform
-
 on:
   push:
     branches:
       - "Az_Containers_Apps"
-
 jobs:
-
   Terraform_fmt_check:
     name: Terraform fmt check
     runs-on: ubuntu-latest
@@ -116,9 +113,9 @@ jobs:
           repo: FrenchBarbusCorp/Demorama_007
           title: Test module Terraform Az Container Apps ${{ steps.var_timestamp_issue.outputs.today }}
           body: |
-            ## This week's TODO
+            ## Azure Container Apps
 
-            - [ ] Have a meeting with UX team
+            - [ ] Tester le déploiement avec le module
             - [ ] Check the dashboard
 
 
