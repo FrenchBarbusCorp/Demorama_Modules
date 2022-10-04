@@ -12,7 +12,7 @@ resource "azurerm_container_registry" "acr" {
 }
 
 resource "azurerm_log_analytics_workspace" "law" {
-  name                = ar.logAnalyticsWorkSpaceName
+  name                = var.logAnalyticsWorkSpaceName
   resource_group_name = azurerm_resource_group.rg0.name
   location            = azurerm_resource_group.rg0.location
   sku                 = var.logAnalyticsWorkSpaceSku
