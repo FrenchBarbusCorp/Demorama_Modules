@@ -107,7 +107,7 @@ jobs:
         id: var_timestamp_issue
 
       - name: Create Issue "Test module Terraform"
-        uses: actions-ecosystem/action-create-issue@v1
+        uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
         with:
           github_token: ${{ secrets.PAT_007 }}
           repo: FrenchBarbusCorp/Demorama_Sre
