@@ -110,18 +110,9 @@ jobs:
         uses: actions-ecosystem/action-create-issue@b02a3c1d9d929a5839315bd255e40389f0dab627
         with:
           github_token: ${{ secrets.PAT_007 }}
-          repo: FrenchBarbusCorp/Demorama_007
+          repo: FrenchBarbusCorp/Demorama_Sre
           title: Test module Terraform Az Container Apps ${{ steps.var_timestamp_issue.outputs.today }}
           body: |
             ## Azure Container Apps
 
-            - [ ] Tester le déploiement avec le module
-            - [ ] Check the dashboard
-
-
-
-
-  
-
-
-
+            - [ ] Tester le déploiement avec le moduleÒ
