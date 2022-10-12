@@ -117,4 +117,3 @@ jobs:
             ## Azure Container Apps
 
             - [ ] Tester le déploiement avec le module Terraform
-
